@@ -16,6 +16,9 @@ In general most components should be a dumb component. A dumb component refers t
 
 * Exports a minimum of 3 items: `enhance`, `PureX`, and `X` (default). Where X is the name of the component.
 * Be supplied a prop called `classNamespace`. The root element (if it is not an html element) must use this prop to allow for easier debugging. This className can be stripped out at build time.
+* Must not handle actions. Instead all callbacks must be provided `onEvent` callbacks.
+* If any callbacks require a form identification then a `pin` prop must be provided.
+* Lifecyle methods should be avoided.
 
 #### Styling
 
@@ -76,6 +79,12 @@ In some cases it is near impossible to ahcieve inline css. Some of these cases a
 * Any child components should have their namespaces overwritten.
 
 ### Smart Components
+
+* A smart component must be called `ConnectedX`.
+* It does not have any render function. Instead it uses `react-redux`'s `connect` hoc.
+* If any actions need to be performed upon lifecycle methods then use `lifecyle` from recompose.
+* All callback methods defined in the child dumb components must be handled by `withHandlers` from recompose.
+* All actions must be pre-bound, and supplied into an actions object.
 
 ### Assets
 
