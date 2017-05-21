@@ -88,11 +88,15 @@ In some cases it is near impossible to ahcieve inline css. Some of these cases a
 
 ### Assets
 
+* SVGs are the preferred choice for imagery.
+
 #### SVGs
+
+* Use Inline SVG.
 
 #### Images
 
-### 
+#### Fonts
 
 ## State Management
 
@@ -106,7 +110,11 @@ In some cases it is near impossible to ahcieve inline css. Some of these cases a
 
 ## Actions
 
-### Signals (Intent)
+All actions can be split into 2 different types. Signals and messages. A signal denotes an intent to do something; they are written as current tense. Such as `S_DO_THING`, `S_LOAD_DATA`. A reducer must not react to signals.
 
-### Messages (Event)
+In contrast messages denote events have occured in the system. They are written as past tense. Such as `M_DATA_LOADED`.
+
+Each action can have 4 keys: `type`, `payload`, `meta`, and `error`. Payload, meta, and error are optional. When the payload / action is an error the error flag must be set to `true`.
+
+Meta is useful data / functions that do not affect the reducer. For example the resolve and reject functions needed to work with `redux-form` in an epic.
 
