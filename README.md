@@ -2,8 +2,6 @@
 
 ## UI
 
-## General
-
 * Every component must be stateless.
 * Use the stateless function syntax.
 * Each custom component must go in its own file.
@@ -19,6 +17,7 @@ In general most components should be a dumb component. A dumb component refers t
 * Must not handle actions. Instead all callbacks must be provided `onEvent` callbacks.
 * If any callbacks require a form identification then a `pin` prop must be provided.
 * Lifecyle methods should be avoided.
+* Must be pure. Therefore given the same input will result in the same output.
 
 #### Styling
 
@@ -100,21 +99,50 @@ In some cases it is near impossible to ahcieve inline css. Some of these cases a
 
 ## State Management
 
+* All data, state. and ui state, must be stored in the global state.
+* The entire state tree must be a plain object or array.
+* Avoid storing any data that can be "easily" derived.
+
 ### Reducers
+
+* A reducer must return a completely new object. Aka, the state must not be mutated.
+* Use `redux-create-reducer` where possible.
+* Each module must export a root reducer (if it uses reducers).
+
+### Selectors
+
+* Any data that needs to be retreived from state must be obtained via a selector.
+* Use selectors to derive data.
 
 ## Business Logic
 
+Business logic must avoid components at all costs. A component must not be coupled to how things are done. Instead a component should render the state of the application and dispatch user intents.
+
+This logic can be decoupled and achieved in several ways such as thunks, sagas, and epics. Our standard is to use `redux-most` (epics).
+
 ### Epics
 
+* Whilst epics can be written to be pure, they are often used in impure way (performing ajax requests). Therefore any operation that performs impure actions must be supplied to the epic via partial application.
+* Functional style is preferred to the fluent style.
+* Each module must export a root epic (if it uses epics).
+* Must use most.js to handle streams.
+* Should try and break down epics into smaller streams.
+* If 2 operations needs to be achieved which do not have anything to do with each other but use the same action, then split them into 2 different epics.
+* Put as much core logic into services. Use epics as a means of wiring up services and dispatching actions.
+
 ### Streams
+
+* Avoid using promising, opting instead to use cold promises.
 
 ## Actions
 
 All actions can be split into 2 different types. Signals and messages. A signal denotes an intent to do something; they are written as current tense. Such as `S_DO_THING`, `S_LOAD_DATA`. A reducer must not react to signals.
 
-In contrast messages denote events have occured in the system. They are written as past tense. Such as `M_DATA_LOADED`.
+In contrast messages denote events have occured in the system. They are written as past tense. Such as `M_DATA_LOADED`. A message must describe what has happened in the system, and avoid names such as `UPDATED`, `SET`, `CHANGED`.
 
 Each action can have 4 keys: `type`, `payload`, `meta`, and `error`. Payload, meta, and error are optional. When the payload / action is an error the error flag must be set to `true`.
 
 Meta is useful data / functions that do not affect the reducer. For example the resolve and reject functions needed to work with `redux-form` in an epic.
+
+Use `redux-actions` to create actions.
 
