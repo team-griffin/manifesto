@@ -1,23 +1,28 @@
 # Technology stack
 
-* react
-* redux
-* redux-most (for epics and business logic)
-* most / @most/create (for observables)
-* ramda (functional lodash)
-* ramda-adjunct (extension library)
-* reselect (selectors)
-* redux-actions (for creating actions fast)
-* redux-create-reducer (to make reducers fast)
-* recompose (to place all rendering logic and other hocs)
-* bootstrap v4 (for gridding and a few basic utility classes)
+* react [docs](https://facebook.github.io/react/)
+* redux [docs](http://redux.js.org/docs/introduction/Ecosystem.html) [flux](http://facebook.github.io/flux/)
+* redux-most (for epics and business logic) [docs](https://github.com/joshburgess/redux-most)
+* most / @most/create (for observables)[docs](https://github.com/cujojs/most)
+* ramda (functional lodash) [docs](http://ramdajs.com/docs/)
+* ramda-adjunct (extension library) [docs](https://github.com/char0n/ramda-adjunct)
+* reselect (selectors) [docs](https://github.com/reactjs/reselect)
+* redux-actions (for creating actions fast) [docs](https://github.com/acdlite/redux-actions)
+* redux-create-reducer (to make reducers fast) [docs](https://github.com/kolodny/redux-create-reducer)
+* recompose (to place all rendering logic and other hocs) [docs](https://github.com/acdlite/recompose)
+* bootstrap v4 (for gridding and a few basic utility classes)[docs](https://getbootstrap.com)
 * color
-* reactcss (for all styling)
-* radium (when reactcss can't)
-* redux-form (doing anything with forms)
-* axios (http driver)
-* jsdom / enzyme / mocha + nyc / sinon
-* webpack / babel
-* yup (validation)
-* eslint
-* flow
+* reactcss (for all styling) [docs](https://github.com/casesandberg/reactcss)
+* radium (when reactcss can't) [docs](https://github.com/FormidableLabs/radium)
+* redux-form (doing anything with forms) [docs](http://redux-form.com/)
+* axios (http driver) [docs](https://github.com/mzabriskie/axios)
+* Testing
+  * jsdom [docs](https://github.com/tmpvar/jsdom)
+  * enzyme [docs](https://github.com/airbnb/enzyme)
+  * mocha [docs](https://mochajs.org/)
+  * nyc [docs](https://github.com/istanbuljs/nyc)
+  * sinon [docs](http://sinonjs.org/releases/v2.3.7/)
+* webpack / babel [docs](https://webpack.github.io/)
+* yup (validation) [docs](https://github.com/jquense/yup)
+* eslint [docs](http://eslint.org/docs/user-guide/configuring) [react-plugin](https://github.com/yannickcr/eslint-plugin-react)
+* flow [docs](https://flow.org/)
