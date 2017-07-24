@@ -77,3 +77,11 @@ const Color = {
 ### Action Creator
 
 * Noun verb
+
+## Preferred
+This is a list of preferred names over other names
+
+**Note: `>` means prefer over. Example **
+
+* util(s) > helper(s)
+* shared > common
