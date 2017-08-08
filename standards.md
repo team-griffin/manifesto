@@ -49,7 +49,7 @@ In general most components should be a dumb component. A dumb component refers t
 
 ##### Edge Cases
 
-In some cases it is near impossible to ahcieve inline css. Some of these cases are:
+In some cases it is near impossible to achieve inline css. Some of these cases are:
 
 * Input placeholders
 * Raw html
@@ -76,6 +76,10 @@ In some cases it is near impossible to ahcieve inline css. Some of these cases a
 * All text must either be provided by a backend service (which must localalise itself) or be provided via `react-intl`'s message bank.
 * It is preferred to not have the text passed in whereas each component must supply a `intlNamespace`.
 * Any child components should have their namespaces overwritten.
+
+#### Forms (ReduxForm)
+* Any and all form components should use the reduxForm hoc within its `enhance`.
+* The form props should be namespaced to `form` using reduxForm's `propNamespace` config option.
 
 ### Smart Components
 
